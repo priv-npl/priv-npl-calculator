@@ -178,7 +178,7 @@
     h += row('낙찰가율 <em>감정가 대비</em>', bidRate ? pctText(bidRate) : '–');
     h += row('감정가 대비 할인', bidRate ? pctText(100 - bidRate) : '–');
     h += row('최저매각가 대비', minPrice > 0 && bid > 0 ? (bid >= minPrice ? '+' : '') + pctText((bid / minPrice - 1) * 100) : '–');
-    h += row('낙찰가', bid ? wonText(bid) + '원' : '–');
+    h += row('낙찰가', bid ? wonText(bid) + ' 원' : '–');
     h += '</div>';
 
     h += '<div class="result__card">';
@@ -433,7 +433,7 @@
 
     h += '<div class="result__card">';
     h += group('순위별 배당표');
-    h += '<table class="dist"><thead><tr><th>순위 · 항목</th><th>청구액</th><th>배당액</th></tr></thead><tbody>';
+    h += '<table class="dist"><thead><tr><th>순위 · 항목</th><th>청구액(원)</th><th>배당액(원)</th></tr></thead><tbody>';
     rows.forEach(function (r, i) {
       var cls = r.target ? 'is-target' : (r.short ? 'is-short' : '');
       h += '<tr class="' + cls + '">';

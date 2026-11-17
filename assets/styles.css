@@ -137,6 +137,10 @@ a { color: inherit; }
   letter-spacing: .02em;
 }
 
+@media (max-width: 559px) {
+  .presets__label { display: none; }
+}
+
 .preset {
   flex: 0 0 auto;
   border: 1px solid var(--line);

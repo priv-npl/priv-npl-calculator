@@ -868,11 +868,11 @@ a { color: inherit; }
 
   .print-head {
     border-bottom: 2px solid #191F28;
-    padding-bottom: 8mm;
-    margin-bottom: 6mm;
+    padding-bottom: 4.5mm;
+    margin-bottom: 4mm;
   }
-  .print-head h1 { font-size: 17pt; font-weight: 800; letter-spacing: -0.02em; }
-  .print-head p { font-size: 9pt; color: #4E5968; margin-top: 3mm; }
+  .print-head h1 { font-size: 15.5pt; font-weight: 800; letter-spacing: -0.02em; }
+  .print-head p { font-size: 8.5pt; color: #4E5968; margin-top: 2mm; }
   .print-head .print-brand {
     font-size: 9pt;
     font-weight: 800;
@@ -880,7 +880,7 @@ a { color: inherit; }
     color: #1B64DA;
     margin-bottom: 2mm;
   }
-  .print-section { margin-bottom: 6mm; break-inside: avoid; }
+  .print-section { margin-bottom: 4mm; break-inside: avoid; page-break-inside: avoid; }
   .print-section h2 {
     font-size: 11pt;
     font-weight: 800;
@@ -890,8 +890,8 @@ a { color: inherit; }
   }
   .print-table { width: 100%; border-collapse: collapse; }
   .print-table td {
-    font-size: 9.5pt;
-    padding: 1.6mm 0;
+    font-size: 9pt;
+    padding: 1.1mm 0;
     border-bottom: 1px solid #E5E8EB;
   }
   .print-table td:first-child { color: #4E5968; width: 46%; }
@@ -905,8 +905,8 @@ a { color: inherit; }
     padding-top: 3mm;
   }
   .print-foot {
-    margin-top: 8mm;
-    padding-top: 4mm;
+    margin-top: 5mm;
+    padding-top: 3mm;
     border-top: 2px solid #191F28;
     font-size: 9pt;
     color: #191F28;

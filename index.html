@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>PRIV 경매·NPL 계산기 | 낙찰가·경락잔금대출·취득세·질권 ROE·배당표</title>
+<meta name="description" content="경매 낙찰가율과 경락잔금대출 한도, 취득세, 총 필요 현금을 한 번에. NPL 질권대출 레버리지 ROE와 순위별 배당표까지 실시간으로 계산합니다. PRIV 실전 계산기.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PRIV 경매·NPL 실전 계산기">
+<meta property="og:description" content="낙찰가율·경락잔금대출 한도·취득세·필요현금·질권 ROE·배당표를 한 화면에서. PRIV NPL·신탁공매 실무 계산기.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%233182F6'/><text x='50' y='70' font-size='60' font-family='Helvetica,Arial,sans-serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'>P</text></svg>">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="shell top__bar">
+    <a class="brand" href="#top" aria-label="PRIV 계산기 처음으로">
+      <span class="brand__mark" aria-hidden="true">P</span>
+      <span class="brand__text">
+        <strong>PRIV</strong>
+        <small>경매·NPL 실전 계산기</small>
+      </span>
+    </a>
+    <a class="top__tel" href="tel:01096569764">업무 문의 010-9656-9764</a>
+  </div>
+
+  <div class="shell">
+    <div class="presets" aria-label="실전 예시 불러오기">
+      <span class="presets__label">실전 예시 불러오기</span>
+      <button type="button" class="preset" data-preset="auction">수도권 아파트 경매 17.7억</button>
+      <button type="button" class="preset" data-preset="npl">수도권 오피스텔 묶음 질권 9억</button>
+      <button type="button" class="preset" data-preset="dist">서울 용산 1순위 NPL 12억</button>
+    </div>
+  </div>
+</header>
+
+<div class="tabbar">
+  <div class="shell">
+    <div class="tabs" role="tablist" aria-label="계산기 선택">
+      <button type="button" role="tab" id="tabbtn-1" aria-controls="panel-1" aria-selected="true" class="tab is-active" data-tab="1">경매·취득세</button>
+      <button type="button" role="tab" id="tabbtn-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" class="tab" data-tab="2">NPL·ROE</button>
+      <button type="button" role="tab" id="tabbtn-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" class="tab" data-tab="3">배당표</button>
+    </div>
+  </div>
+</div>
+
+<main class="shell">
+
+  <!-- ───────────────────────── 탭 1 ───────────────────────── -->
+  <section id="panel-1" role="tabpanel" aria-labelledby="tabbtn-1" class="panel is-active" tabindex="0">
+    <div class="panel__grid">
+      <div class="col-input">
+        <div class="panel__head">
+          <p class="panel__kicker">낙찰 → 잔금 → 임대까지</p>
+          <h1 class="panel__title">경매 낙찰가·경락잔금대출·취득세</h1>
+          <p class="panel__desc">입찰가만 넣으면 낙찰가율, 대출한도, 취득세, 총 필요 현금과 연 수익률이 바로 나옵니다.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">물건과 입찰가</h2>
+            <button type="button" class="linkbtn" data-reset="1">초기화</button>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="i1-type">물건 유형 <span class="field__note">취득세율 자동 적용</span></label>
+            <span class="field__box field__box--select">
+              <select id="i1-type">
+                <option value="home1">주택 · 1주택(또는 비조정 2주택) 1~3%</option>
+                <option value="home2">주택 · 조정 2주택 / 비조정 3주택 8%</option>
+                <option value="home3">주택 · 조정 3주택 이상 / 법인 12%</option>
+                <option value="nonres">오피스텔·상가·토지 4.6%</option>
+              </select>
+            </span>
+          </div>
+
+          <label class="check" for="i1-over85">
+            <input type="checkbox" id="i1-over85" checked>
+            <span>전용 85㎡ 초과 (농어촌특별세 부과)</span>
+          </label>
+
+          <div class="field">
+            <label class="field__label" for="i1-appraisal">법원 감정가</label>
+            <span class="field__box">
+              <input id="i1-appraisal" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,770,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i1-appraisal"></span>
+          </div>
+
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i1-min">최저매각가</label>
+              <span class="field__box">
+                <input id="i1-min" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,239,000,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i1-min"></span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i1-bid">내 입찰가</label>
+              <span class="field__box">
+                <input id="i1-bid" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,500,000,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i1-bid"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">경락잔금대출 한도</h2>
+            <span class="badge">1금융권 관행</span>
+          </div>
+          <p class="card__desc">감정가 기준 한도와 낙찰가 기준 한도 중 <b>적은 금액</b>이 적용됩니다. 방공제는 차감됩니다.</p>
+
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i1-ltv1">감정가 기준 LTV</label>
+              <span class="field__box">
+                <input id="i1-ltv1" class="num" type="text" inputmode="decimal" autocomplete="off" value="70">
+                <span class="field__unit">%</span>
+              </span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i1-ltv2">낙찰가 기준 비율</label>
+              <span class="field__box">
+                <input id="i1-ltv2" class="num" type="text" inputmode="decimal" autocomplete="off" value="80">
+                <span class="field__unit">%</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="i1-bang">방공제 <span class="field__note">소액임차인 최우선변제 상당액</span></label>
+            <span class="field__box">
+              <input id="i1-bang" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="0">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint">서울 5,500만 · 과밀억제권역 4,800만 · 광역시 2,800만 · 그 밖 2,500만 (방 1개 기준)</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">취득 부대비용</h2>
+          </div>
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i1-legal">법무사·등기비</label>
+              <span class="field__box">
+                <input id="i1-legal" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,200,000">
+                <span class="field__unit">원</span>
+              </span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i1-evict">명도비</label>
+              <span class="field__box">
+                <input id="i1-evict" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="3,000,000">
+                <span class="field__unit">원</span>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i1-repair">수리비</label>
+            <span class="field__box">
+              <input id="i1-repair" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="10,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i1-repair"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">임대수익과 대출금리</h2>
+            <span class="badge">연 수익률</span>
+          </div>
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i1-rent">월 임대수익</label>
+              <span class="field__box">
+                <input id="i1-rent" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="6,000,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i1-rent"></span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i1-rate">대출금리(연)</label>
+              <span class="field__box">
+                <input id="i1-rate" class="num" type="text" inputmode="decimal" autocomplete="off" value="4.5">
+                <span class="field__unit">%</span>
+              </span>
+            </div>
+          </div>
+          <p class="card__foot">연 순수익률 = (연 임대수익 − 대출이자) ÷ 총 필요 현금</p>
+        </div>
+      </div>
+
+      <aside class="col-result">
+        <div class="result" id="result-1" aria-live="polite"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 탭 2 ───────────────────────── -->
+  <section id="panel-2" role="tabpanel" aria-labelledby="tabbtn-2" class="panel" tabindex="0">
+    <div class="panel__grid">
+      <div class="col-input">
+        <div class="panel__head">
+          <p class="panel__kicker">채권 매입 → 질권대출 → 회수</p>
+          <h2 class="panel__title">NPL 질권대출 레버리지 &amp; ROE</h2>
+          <p class="panel__desc">채권매입가 대비 질권대출을 일으켰을 때, 내 자기자본으로 얼마를 버는지 기간까지 반영해 계산합니다.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">채권 조건</h2>
+            <button type="button" class="linkbtn" data-reset="2">초기화</button>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i2-appraisal">담보 부동산 감정가</label>
+            <span class="field__box">
+              <input id="i2-appraisal" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,400,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i2-appraisal"></span>
+          </div>
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i2-opb">채권원금(OPB)</label>
+              <span class="field__box">
+                <input id="i2-opb" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="900,000,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i2-opb"></span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i2-price">채권매입가</label>
+              <span class="field__box">
+                <input id="i2-price" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="630,000,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i2-price"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i2-cost">매입 부대비용 <span class="field__note">명도·등기·수수료 등</span></label>
+            <span class="field__box">
+              <input id="i2-cost" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="5,000,000">
+              <span class="field__unit">원</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">질권대출</h2>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i2-basis">대출 기준</label>
+            <span class="field__box field__box--select">
+              <select id="i2-basis">
+                <option value="price">채권매입가 기준 (일반적)</option>
+                <option value="appraisal">담보 감정가 기준</option>
+              </select>
+            </span>
+          </div>
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i2-ltv">질권대출 LTV</label>
+              <span class="field__box">
+                <input id="i2-ltv" class="num" type="text" inputmode="decimal" autocomplete="off" value="70">
+                <span class="field__unit">%</span>
+              </span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i2-loanrate">질권대출 금리(연)</label>
+              <span class="field__box">
+                <input id="i2-loanrate" class="num" type="text" inputmode="decimal" autocomplete="off" value="9.5">
+                <span class="field__unit">%</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">회수 계획</h2>
+          </div>
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i2-bond">채권이자율(연)</label>
+              <span class="field__box">
+                <input id="i2-bond" class="num" type="text" inputmode="decimal" autocomplete="off" value="12">
+                <span class="field__unit">%</span>
+              </span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i2-months">회수 기간</label>
+              <span class="field__box">
+                <input id="i2-months" class="num" type="text" inputmode="numeric" autocomplete="off" value="12">
+                <span class="field__unit">개월</span>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i2-recovery">회수율 <span class="field__note">채권원금 대비 실제 회수</span></label>
+            <span class="field__box">
+              <input id="i2-recovery" class="num" type="text" inputmode="decimal" autocomplete="off" value="100">
+              <span class="field__unit">%</span>
+            </span>
+            <span class="field__hint">회수 기간 동안 채권원금 전액에 이자가 붙는 것으로 계산합니다.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="col-result">
+        <div class="result" id="result-2" aria-live="polite"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 탭 3 ───────────────────────── -->
+  <section id="panel-3" role="tabpanel" aria-labelledby="tabbtn-3" class="panel" tabindex="0">
+    <div class="panel__grid">
+      <div class="col-input">
+        <div class="panel__head">
+          <p class="panel__kicker">매각대금은 누구에게 얼마나</p>
+          <h2 class="panel__title">순위별 배당표 시뮬레이터</h2>
+          <p class="panel__desc">매각대금에서 비용·당해세·최우선변제·선순위 임차인을 차례로 빼고, 1순위 근저당이 얼마를 받는지 확인합니다.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">매각대금과 비용</h2>
+            <button type="button" class="linkbtn" data-reset="3">초기화</button>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i3-bid">예상 낙찰가</label>
+            <span class="field__box">
+              <input id="i3-bid" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,260,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i3-bid"></span>
+          </div>
+          <div class="fields-2">
+            <div class="field">
+              <label class="field__label" for="i3-cost">집행비용</label>
+              <span class="field__box">
+                <input id="i3-cost" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="3,500,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i3-cost"></span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="i3-tax">당해세</label>
+              <span class="field__box">
+                <input id="i3-tax" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="8,500,000">
+                <span class="field__unit">원</span>
+              </span>
+              <span class="field__hint" data-hint-for="i3-tax"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">선순위 채권</h2>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i3-small">소액임차인 최우선변제</label>
+            <span class="field__box">
+              <input id="i3-small" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="55,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i3-small"></span>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i3-senior">선순위 임차인 보증금 <span class="field__note">확정일자 있는 임차인</span></label>
+            <span class="field__box">
+              <input id="i3-senior" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="120,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i3-senior"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__head">
+            <h2 class="card__title">1순위 근저당</h2>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i3-mortgage">채권최고액</label>
+            <span class="field__box">
+              <input id="i3-mortgage" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,200,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i3-mortgage"></span>
+          </div>
+          <div class="field">
+            <label class="field__label" for="i3-claim">실제 채권액 <span class="field__note">선택 · 채권최고액의 1/1.2가 통상</span></label>
+            <span class="field__box">
+              <input id="i3-claim" class="amount" type="text" inputmode="numeric" autocomplete="off" placeholder="0" value="1,000,000,000">
+              <span class="field__unit">원</span>
+            </span>
+            <span class="field__hint" data-hint-for="i3-claim"></span>
+          </div>
+          <p class="card__foot">배당 순위: 집행비용 → 당해세 → 소액임차인 최우선변제 → 선순위 임차인 → 근저당</p>
+        </div>
+      </div>
+
+      <aside class="col-result">
+        <div class="result" id="result-3" aria-live="polite"></div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- ───────────────────────── 문의 CTA ───────────────────────── -->
+<section class="cta">
+  <div class="shell">
+    <div class="cta__card">
+      <p class="cta__kicker">PRIV · NPL · 신탁공매</p>
+      <h2 class="cta__title">계산은 여기서,<br>실제 딜은 PRIV에서</h2>
+      <p class="cta__desc">물건 검토, 질권대출 조건, 배당 분석이 필요하면 위 계산 조건 그대로 보내주세요. 담당자가 직접 확인하고 회신합니다.</p>
+
+      <div class="cta__actions">
+        <a class="btn btn--primary" href="tel:01096569764">전화 010-9656-9764</a>
+        <a class="btn btn--ghost" id="smsLink" href="sms:01096569764">문자 보내기</a>
+      </div>
+
+      <a class="cta__mail" id="mailLink" href="mailto:soosoo8989@nate.com">soosoo8989@nate.com</a>
+
+      <div class="inquiry">
+        <div class="inquiry__head">
+          <label for="inquiryText">문의 내용 <span>계산 조건이 자동으로 들어갑니다</span></label>
+        </div>
+        <textarea id="inquiryText" rows="8" spellcheck="false"></textarea>
+        <div class="inquiry__actions">
+          <button type="button" class="btn btn--soft" id="copyInquiry">문의 내용 복사</button>
+          <a class="btn btn--line" id="mailInquiry" href="mailto:soosoo8989@nate.com">메일로 보내기</a>
+        </div>
+        <p class="inquiry__note">연락처만 채워 넣고 보내시면 됩니다. 입력한 값은 서버로 전송되지 않고 이 브라우저 안에서만 계산됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell foot__inner">
+    <p class="foot__brand">PRIV <span>신탁공매 · NPL 전문</span></p>
+    <p class="foot__meta">업무 문의 <a href="tel:01096569764">010-9656-9764</a> · <a href="mailto:soosoo8989@nate.com">soosoo8989@nate.com</a></p>
+    <p class="foot__note">본 계산기는 의사결정 참고용입니다. 대출 한도·금리와 취득세율·배당 순위는 금융사 심사, 관할 지자체 신고, 법원 실무에 따라 달라질 수 있습니다.</p>
+  </div>
+</footer>
+
+<div class="mobile-bar" id="mobileBar">
+  <div class="mobile-bar__item">
+    <span class="mobile-bar__label" id="mbLabel-1">총 필요 현금</span>
+    <b class="mobile-bar__value" id="mbValue-1">–</b>
+  </div>
+  <div class="mobile-bar__item">
+    <span class="mobile-bar__label" id="mbLabel-2">연 수익률</span>
+    <b class="mobile-bar__value" id="mbValue-2">–</b>
+  </div>
+  <button type="button" class="mobile-bar__cta" id="mbJump">결과 보기</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<section class="print-sheet" id="printArea" aria-hidden="true"></section>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

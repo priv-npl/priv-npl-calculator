@@ -1,5 +1,7 @@
 # PRIV 경매·NPL 실전 계산기
 
+**라이브:** https://priv-npl.github.io/priv-npl-calculator/
+
 경매 낙찰·경락잔금대출·취득세, NPL 질권대출 레버리지 ROE, 순위별 배당표를 한 화면에서 계산하는 정적 웹앱입니다.
 외부 백엔드·라이브러리·CDN 의존성이 없어 `index.html` 하나만 열어도 동작합니다.
 

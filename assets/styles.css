@@ -880,7 +880,7 @@ a { color: inherit; }
     color: #1B64DA;
     margin-bottom: 2mm;
   }
-  .print-section { margin-bottom: 4mm; break-inside: avoid; page-break-inside: avoid; }
+  .print-section { margin-bottom: 3.2mm; break-inside: avoid; page-break-inside: avoid; }
   .print-section h2 {
     font-size: 11pt;
     font-weight: 800;
@@ -891,7 +891,7 @@ a { color: inherit; }
   .print-table { width: 100%; border-collapse: collapse; }
   .print-table td {
     font-size: 9pt;
-    padding: 1.1mm 0;
+    padding: 1mm 0;
     border-bottom: 1px solid #E5E8EB;
   }
   .print-table td:first-child { color: #4E5968; width: 46%; }
@@ -899,11 +899,13 @@ a { color: inherit; }
   .print-table tr.is-strong td { font-weight: 800; color: #1B64DA; }
   .print-note {
     font-size: 8pt;
-    color: #8B95A1;
-    line-height: 1.5;
-    border-top: 1px solid #E5E8EB;
+    color: #6B7684;
+    line-height: 1.55;
+    border-top: 2px solid #191F28;
     padding-top: 3mm;
+    margin-top: 4mm;
   }
+  .print-note b { color: #191F28; font-size: 8.5pt; }
   .print-foot {
     margin-top: 5mm;
     padding-top: 3mm;

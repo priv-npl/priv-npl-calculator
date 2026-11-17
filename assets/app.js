@@ -588,8 +588,7 @@
       h += '</tbody></table></div>';
     });
 
-    h += '<p class="print-note">본 계산 결과는 참고용입니다. 대출 한도·금리, 취득세율, 배당 순위는 금융사 심사·관할 지자체 신고·법원 실무에 따라 달라질 수 있습니다.</p>';
-    h += '<div class="print-foot"><b>PRIV</b> 신탁공매 · NPL 전문<br>업무 문의 010-9656-9764 · soosoo8989@nate.com</div>';
+    h += '<p class="print-note"><b>PRIV · NPL · 신탁공매</b> &nbsp;업무 문의 010-9656-9764 · soosoo8989@nate.com<br>본 계산 결과는 참고용입니다. 대출 한도·금리, 취득세율, 배당 순위는 금융사 심사·관할 지자체 신고·법원 실무에 따라 달라질 수 있습니다.</p>';
 
     $('#printArea').innerHTML = h;
   }
